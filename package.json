@@ -1,0 +1,36 @@
+{
+  "name": "discord-multiimage",
+  "version": "1.0.0",
+  "description": "Display multiple images in Discord with grid or stacked layouts.",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sajidurdev/discord-multiimage.git"
+  },
+  "keywords": [
+    "discord",
+    "embed",
+    "image",
+    "canvas",
+    "gallery",
+    "bot",
+    "discord.js"
+  ],
+  "author": "sajidurdev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sajidurdev/discord-multiimage/issues"
+  },
+  "homepage": "https://github.com/sajidurdev/discord-multiimage#readme",
+  "peerDependencies": {
+    "discord.js": "^14.19.3",
+    "skia-canvas": "^2.0.2"
+  }
+}
