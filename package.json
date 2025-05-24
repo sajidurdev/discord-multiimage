@@ -32,5 +32,8 @@
   "peerDependencies": {
     "discord.js": "^14.19.3",
     "skia-canvas": "^2.0.2"
-  }
+  },
+    "publishConfig": {
+     "access": "public"
+    }
 }
