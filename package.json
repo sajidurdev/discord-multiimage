@@ -1,6 +1,6 @@
 {
   "name": "discord-multiimage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Display multiple images in Discord with grid or stacked layouts.",
   "main": "src/index.js",
   "type": "commonjs",
