@@ -16,7 +16,8 @@ const { AttachmentBuilder } = require('discord.js');
  * @param {number} [options.maxWidth=600]
  *   Full width of Discord embed image
  * @param {number} [options.maxHeight=450]
- *   Maximum height for layouts
+ *   Maximum height for layouts. If the ideal height exceeds this, the
+ *   canvas width and height are scaled down proportionally.
  * @param {string} [options.filename='grid.png']
  *   Output filename
  * @param {string} [options.bgColor='#2f3136']
@@ -55,14 +56,15 @@ async function mergeImagesInGrid(imageUrls = [], options = {}) {
   }
 
   const count = images.length;
-  let canvasWidth, canvasHeight;
+  let canvasWidth = maxWidth;
+  let canvasHeight;
 
-  if (count === 2) {
-    canvasWidth = maxWidth;
-    canvasHeight = Math.floor(maxWidth * 0.5625); // 16:9 ratio
-  } else {
-    canvasWidth = maxWidth;
-    canvasHeight = Math.floor(maxWidth * 0.75); // 4:3  ratio
+  const heightRatio = count === 2 ? 9 / 16 : 3 / 4;
+  canvasHeight = Math.floor(canvasWidth * heightRatio);
+
+  if (canvasHeight > maxHeight) {
+    canvasHeight = maxHeight;
+    canvasWidth = Math.floor(canvasHeight / heightRatio);
   }
 
   const canvas = new Canvas(canvasWidth, canvasHeight);
